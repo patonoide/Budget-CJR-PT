@@ -16,6 +16,7 @@ function enviar() {
 
         despesa();
     }
+    atualizarporc()
 
 }
 
@@ -30,11 +31,8 @@ function despesa(){
     //modificando o total de despesas
     despesa.innerHTML='';
     despesa.innerHTML=novo;
-
-    //calculando a porcentagem
-    var porcento =  parseFloat(document.getElementById('despesa').textContent.trim()) / parseFloat(document.getElementById('ganho').textContent.trim())  *100
     //inserindo na tabela
-    document.getElementById("table-body-despesa").innerHTML += "<tr><td>"+desc.value+"</td><td>"+atual.value+"</td><td>"+porcento+"</td></tr>"
+    document.getElementById("table-body-despesa").innerHTML += "<tr><td>"+desc.value+"</td><td class='porcentagem_valor'>"+atual.value+"</td><td class='porcentagem'></td></tr>"
 
 
     total()
@@ -49,6 +47,8 @@ function ganho() {
     var desc = document.getElementById('desc')
     //inserindo na tabela
     document.getElementById("table-body-ganho").innerHTML += "<tr><td>"+desc.value+"</td><td>"+atual.value+"</td></tr>"
+
+
 
     var novo = parseFloat(ganho.textContent) + parseFloat(atual.value)
     ganho.innerHTML='';
@@ -74,5 +74,20 @@ function total(){
 
         total.className = "alert "+ " alert-danger"
     }
+
+}
+
+function atualizarporc(){
+
+    var table_despesa = document.getElementsByClassName('porcentagem')
+    var porcentagem_valor = document.getElementsByClassName('porcentagem_valor')
+    //calculando a porcentagem total
+    var badge =  document.getElementById('badge-despesa')
+    badge.innerHTML=parseFloat(document.getElementById('despesa').textContent.trim()) / parseFloat(document.getElementById('ganho').textContent.trim())  *100+"%"
+
+    for (var i = 0; i < table_despesa.length; i++) {
+        table_despesa[i].innerHTML = parseFloat(porcentagem_valor[i].textContent.trim()) / parseFloat(document.getElementById('ganho').textContent.trim())  *100+"%"
+    }
+
 
 }

@@ -4,3 +4,11 @@
 
 
 }
+.badge-direita{
+    right: 0;
+    position: absolute;
+    margin-right: 3em;
+}
+.badge-warning {
+  background-color: #c67605;
+}
