@@ -17,6 +17,10 @@ function despesa(){
     var despesa = document.getElementById('despesa');
     var atual = document.getElementById('valor');
     var novo = parseFloat(despesa.textContent) + parseFloat(atual.value)
+
+    //inserindo na tabela
+    document.getElementById("table-body-despesa").innerHTML += "<tr><td>"+desc.value+"</td><td>"+atual.value+"</td></tr>"
+
     despesa.innerHTML='';
     despesa.innerHTML=novo;
     total()
@@ -25,6 +29,9 @@ function despesa(){
 function ganho() {
     var ganho = document.getElementById('ganho');
     var atual = document.getElementById('valor');
+    var desc = document.getElementById('desc')
+    //inserindo na tabela
+    document.getElementById("table-body-ganho").innerHTML += "<tr><td>"+desc.value+"</td><td>"+atual.value+"</td></tr>"
 
     var novo = parseFloat(ganho.textContent) + parseFloat(atual.value)
     ganho.innerHTML='';
