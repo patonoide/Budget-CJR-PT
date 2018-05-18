@@ -83,10 +83,10 @@ function atualizarporc(){
     var porcentagem_valor = document.getElementsByClassName('porcentagem_valor')
     //calculando a porcentagem total
     var badge =  document.getElementById('badge-despesa')
-    badge.innerHTML=Math.round(parseFloat(document.getElementById('despesa').textContent.trim()) / parseFloat(document.getElementById('ganho').textContent.trim())  *100)+"%"
+    badge.innerHTML=(parseFloat(document.getElementById('despesa').textContent.trim()) / parseFloat(document.getElementById('ganho').textContent.trim())  *100).toFixed(2)+"%"
 
     for (var i = 0; i < table_despesa.length; i++) {
-        table_despesa[i].innerHTML = Math.round(parseFloat(porcentagem_valor[i].textContent.trim()) / parseFloat(document.getElementById('ganho').textContent.trim())  *100)+"%"
+        table_despesa[i].innerHTML = (parseFloat(porcentagem_valor[i].textContent.trim()) / parseFloat(document.getElementById('ganho').textContent.trim())  *100).toFixed(2)+"%"
     }
 
 
