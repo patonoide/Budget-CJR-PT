@@ -72,10 +72,13 @@ function total(){
     total.innerHTML='';
     total.innerHTML=novo;
     //modifica a classe do alert
-    if(novo >= 0 ){
-        //alert verde se saldo for maior ou igual a 0
+    if(novo == 0 ){
+        //alert azul se saldo for igual a 0
+        total.className = "alert "+ " alert-info"
+    }else if(novo > 0){
+        //alert verde se saldo for maior que 0
         total.className = "alert "+ " alert-success"
-    }else{
+    }else {
         //alert vermelho se saldo menor que 0
         total.className = "alert "+ " alert-danger"
     }
