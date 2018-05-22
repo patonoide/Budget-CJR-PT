@@ -46,15 +46,17 @@ function ganho() {
     var atual = document.getElementById('valor');
     //novo total de ganhos
     var desc = document.getElementById('desc')
-    //inserindo na tabela
-    document.getElementById("table-body-ganho").innerHTML += "<tr><td>"+desc.value+"</td><td>"+atual.value+"</td></tr>"
 
 
     //calcula novo total
     var novo = parseFloat(ganho.textContent) + parseFloat(atual.value)
-    //modifica o valor
+    //modificando o total de despesas
     ganho.innerHTML='';
     ganho.innerHTML=novo;
+
+    //inserindo na tabela
+    document.getElementById("table-body-ganho").innerHTML += "<tr><td>"+desc.value+"</td><td>"+atual.value+"</td></tr>"
+
 
     total()
 }
