@@ -1,23 +1,37 @@
 
 document.getElementById('botao').addEventListener("click",enviar,false);
 function enviar() {
-
+    var atual = document.getElementById('valor');
     var tipo = document.getElementById('tipo').value;
     var tabelas = document.getElementById('tabelas');
-    if(document.getElementById('total').textContent.trim() == "0"){
+    document.getElementById('desc')
 
-        tabelas.className = "row";
+    //checa se o campo descricao é vazio
+    if(document.getElementById('desc').value !== "" && desc.value.replace(/\s/g, '').length){
+        //checa se o campo do valor é um número
+        if(parseFloat(atual.value) == atual.value){
+            //mostra a table
+            if(document.getElementById('total').textContent.trim() == "0"){
+
+                tabelas.className = "row";
+            }
+            //chama a função de acordo o select
+            if(tipo == "+"){
+
+                ganho();
+            }else if (tipo =="-") {
+
+                despesa();
+            }
+            //atualiza as porcentagens
+            atualizarporc()
+        }else{
+            alert("Insira um número válido")
+        }
+    }else{
+        alert("A descrição esta vazia")
+
     }
-    //chama a função de acordo o select
-    if(tipo == "+"){
-
-        ganho();
-    }else if (tipo =="-") {
-
-        despesa();
-    }
-    //atualiza as porcentagens
-    atualizarporc()
 
 }
 
@@ -26,6 +40,10 @@ function despesa(){
     var despesa = document.getElementById('despesa');
     //novo valor
     var atual = document.getElementById('valor');
+    //descricao
+    var desc = document.getElementById('desc')
+
+
     //novo total de despesas
     var novo = parseFloat(despesa.textContent) + parseFloat(atual.value)
 
@@ -44,7 +62,7 @@ function ganho() {
     var ganho = document.getElementById('ganho');
     //novo valor
     var atual = document.getElementById('valor');
-    //novo total de ganhos
+    //descricao
     var desc = document.getElementById('desc')
 
 
